@@ -11,23 +11,23 @@
     // for(let i=0; i<arr.length;i++){
         // sum=arr[i]+sum;
        
-    // } return newArr=sum/arr.length;
+    // } return sum/arr.length;
 // } alert(newArr(arr))
 
 // Зфдание 3.
-// let str="JavaScript";
-// function revStr(str){
-    // let strRew = " ";
-    // for(let i=str.length-1;i>=0;i--){
-        // strRew=str[i]+strRew
-    // } return revStr(str)=== strRew;
+
+//  function revStr(str){
+    //  let strNew = " ";
+//  for(let i=str.length-1;i>=0;i--){
+        //  strNew=strNew+str[i]
+    //  } return  strNew;
 //  } alert(revStr(str));
 
  // Зфдание 3.
 
-function revStr(str){
-  return  str.split("").reverse().join("");
- } alert(revStr("JavaScript"));
+// function revStr(str){
+//   return  str.split("").reverse().join("");
+//  } alert(revStr("JavaScript"));
 
 
  // Зфдание 4.
@@ -37,3 +37,14 @@ function revStr(str){
 //    else{
     // return false;} 
 // } alert(num(5))
+
+// Задание 5.
+
+ function revStr(str,ch){  
+    let sum=0; 
+for(let i=0; i<str.length;i++){
+        if(str[i]===ch){
+            sum++;
+        }
+     } return  sum;
+ } alert(revStr('hello','l'));
