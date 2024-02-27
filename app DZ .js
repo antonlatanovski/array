@@ -1,104 +1,134 @@
-function BankAccount (){
-    let balans_=0
-    this.addBalans=function(sum) { 
-       return balans_+sum
-     }
-     this.withdrawBalans= function(sum){
-       if(sum<=balans_){
-      this.balans_=balans_-sum
-       }
-     }
-    this.getBalans = function (){
-       return balans_
-     }
-     this.setBalans= function(balans){
-      if(balans>=0){
-        this.balans_ = balans
-        return balans
-      } 
-     }
-   } 
-   const BankAccount1 = new BankAccount()
-  alert(BankAccount1.setBalans(1000)) 
-alert(BankAccount1.addBalans(20))
-alert(BankAccount1.getBalans())
-
-// Задание 1
-function User (name, age){
-  let name_=name
-  let age_=age
-  this.getUserName=function(name){  
-    return name
+//  Задание 1
+class Person {
+  #name_
+  #age_
+  constructor(name,age){
+    this.#name_=name
+    this.#age_=age
   }
-  this.getUserAge=function(age){  
-    return age
+   getShowName(){
+    return this.#name_
   }
-}
-const User1 = new User()
-alert(User1.getUserName("Antun"))
-
-// Задание 2
-function Calculator (){
-
-this.getAddNum=function(num1, num2){
-
-return num1+num2
-}
-this.getSubtractNum = function(num1, num2){
-  return num1-num2
-}
-this.getMultiplyNum = function(num1, num2){
- return num1*num2
-}
-this.getDivideNum = function(num1, num2){
-  return num1/num2
-}
-} const Calculator1 = new Calculator()
-
-alert(Calculator1.getMultiplyNum(1,4))
-
-// Задание 3.
-function Book (){
-  let title_= title
-  let autor_= autor
-  let yer_= yer
-  this.getTitle = function(title){
-    return title
+  getShouwAge(){
+    return this.#age_
   }
-  this.getAutor = function(autor){
-    return autor
-  }
-  this.getYer = function(yer){
-    return yer
-  }
-} const Book1 = new Book()
-alert(Book1.getTitle(Potter))
+} let Person1 = new Person("Anton",39)
+alert(Person1())
 
-// Задание 4.
-function Cart(){
-  let carts = []
-  this.getAaddltem = function(product){
-    return carts.push(product)
+//  Задание 2
+class Employee extends Person(){
+  #position_
+  constructor(name,age,position){
+this.#position_=position
   }
-this.getRemoveltem = function(product){
-let indexProduct = carts.indexOf(product)
-carts.splice(indexProduct,1)
-}
-  this.getClearCart = function(){
-    carts.splice(0,carts.length)
+  getSetPosition(){
+    return this.#position_
+  }
+} let Employee1 =new Employee("Anton",39,"IT")
+alert(Employee1())
+ 
+// Задание 3
+class BankAccount{
+  #balance_
+  constructor(balans,sum){
+    this.#balance_=balans
+    this.sum_=sum
+  }
+  getSummBalance(){
+    return this.#balance_+this.sum_
+  }
+  setWithdrawBalance(){
+    if(this.#balance_>=this.sum_){
+      return this.#balance_-this.sum_
+    }
   }
 }
-const Cart1 = new Cart()
-Cart1.getClearCart()
-
-// Задание 5.
-function Auto(){
-  let brand_=brand
-  let model_=model
-  let yer_=yer
-  this.setChangeYer = function(yer){
-    return yer
+class SavingsAccoun extends BankAccount(){
+  constructor(balans,sum,interestRate){
+    this.interestRate_=interestRate
+  }
+  setShowInterestRate(){
+    return balans*this.interestRate_
   }
 }
-const Auto1 = new Auto()
- alert(Auto1.setChangeYer("BMW"))
+class CheckingAccount extends BankAccount(){
+  constructor(balans,sum,comiss){
+    this.comiss_=comiss
+  }
+  setComissBalance(){
+    return balans-this.comiss_
+  }
+}
+
+// Задание 4
+class Animal {
+  #name_
+  #sound_
+  constructor(name,sound){
+    this.#name_=name
+    this.#sound_=sound
+  }
+  getShowSound(){
+    alert("nothing")
+  }
+}
+class Dog extends Animal(){
+  constructor(name,sound,sounddogy){
+this.sounddogy_=sounddogy
+  }
+    runShowSoudDogy(){
+      alert("Гав")
+    }
+
+}
+class Cat extends Animal(){
+  constructor(name,sound,soundcats){
+this.soundcats_=soundcats
+  }
+    runShowSoudCats(){
+      alert("Мяу")
+    }
+}
+
+// Задание 5
+class Vehicle{
+  #make_
+  #model_
+  #yer_
+  constructor(make,model,yer){
+    this.#make_=make
+    this.#model_=model
+    this.#yer_=yer
+  }
+  getShowVehicle(){
+    return this.#make_,this.#model_,this.#yer_
+  }
+}
+class Car extends Vehicle(){
+  #power_
+  constructor(make,model,yer,power){
+    this.#power_=power
+  }
+ getShowPowerCar(){
+  return this.#power_
+ }
+} let Car1 = new Car(200)
+alert(Car1())
+class Motorcycle extends Vehicle(){
+  #enginevolume_
+  constructor(make,model,yer,enginevolume){
+    this.#enginevolume_=enginevolume
+  }
+ getShowEngineMoto(){
+  return this.#enginevolume_
+ }
+}
+class Truck extends Vehicle(){
+  #length_
+  constructor(make,model,yer,length){
+    this.#length_=length
+  }
+ getShowLengthTruck(){
+  return this.#length_
+ }
+}
