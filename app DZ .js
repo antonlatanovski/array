@@ -1,134 +1,159 @@
-//  Задание 1
-class Person {
-  #name_
-  #age_
-  constructor(name,age){
-    this.#name_=name
-    this.#age_=age
-  }
-   getShowName(){
-    return this.#name_
-  }
-  getShouwAge(){
-    return this.#age_
-  }
-} let Person1 = new Person("Anton",39)
-alert(Person1())
-
-//  Задание 2
-class Employee extends Person(){
-  #position_
-  constructor(name,age,position){
-this.#position_=position
-  }
-  getSetPosition(){
-    return this.#position_
-  }
-} let Employee1 =new Employee("Anton",39,"IT")
-alert(Employee1())
- 
-// Задание 3
-class BankAccount{
-  #balance_
-  constructor(balans,sum){
-    this.#balance_=balans
-    this.sum_=sum
-  }
-  getSummBalance(){
-    return this.#balance_+this.sum_
-  }
-  setWithdrawBalance(){
-    if(this.#balance_>=this.sum_){
-      return this.#balance_-this.sum_
-    }
-  }
-}
-class SavingsAccoun extends BankAccount(){
-  constructor(balans,sum,interestRate){
-    this.interestRate_=interestRate
-  }
-  setShowInterestRate(){
-    return balans*this.interestRate_
-  }
-}
-class CheckingAccount extends BankAccount(){
-  constructor(balans,sum,comiss){
-    this.comiss_=comiss
-  }
-  setComissBalance(){
-    return balans-this.comiss_
-  }
-}
-
-// Задание 4
+// Задание 1
 class Animal {
   #name_
-  #sound_
-  constructor(name,sound){
+  #age_
+  #weight_
+  constructor(name,age,weight){
     this.#name_=name
-    this.#sound_=sound
+    this.#age_=age
+    this.#weight_=weight
   }
-  getShowSound(){
-    alert("nothing")
+  getMakeSound(){
+    alert("non")
   }
-}
-class Dog extends Animal(){
-  constructor(name,sound,sounddogy){
-this.sounddogy_=sounddogy
-  }
-    runShowSoudDogy(){
-      alert("Гав")
-    }
-
-}
-class Cat extends Animal(){
-  constructor(name,sound,soundcats){
-this.soundcats_=soundcats
-  }
-    runShowSoudCats(){
-      alert("Мяу")
-    }
-}
-
-// Задание 5
-class Vehicle{
-  #make_
-  #model_
-  #yer_
-  constructor(make,model,yer){
-    this.#make_=make
-    this.#model_=model
-    this.#yer_=yer
-  }
-  getShowVehicle(){
-    return this.#make_,this.#model_,this.#yer_
+  getEat(){
+    alert("non")
   }
 }
-class Car extends Vehicle(){
-  #power_
-  constructor(make,model,yer,power){
-    this.#power_=power
+class Mammal extends Animal{
+  #predators_
+  constructor(name,age,weight,predators){
+    super(name,age,weight)
+    this.#predators_=predators
   }
- getShowPowerCar(){
-  return this.#power_
- }
-} let Car1 = new Car(200)
-alert(Car1())
-class Motorcycle extends Vehicle(){
-  #enginevolume_
-  constructor(make,model,yer,enginevolume){
-    this.#enginevolume_=enginevolume
+  getMakeSound(){
+    alert("roar")
   }
- getShowEngineMoto(){
-  return this.#enginevolume_
- }
+  getEat(){
+    alert("meat")
+  }
+  getRaptor(){
+    alert("lion")
+  }
 }
-class Truck extends Vehicle(){
-  #length_
-  constructor(make,model,yer,length){
-    this.#length_=length
+class Bird extends Animal{
+  #waterflou_
+  constructor(name,age,weight,waterflou){
+    super(name,age,weight)
+    this.#waterflou_=waterflou
   }
- getShowLengthTruck(){
-  return this.#length_
- }
+  getMakeSound(){
+    alert("chirping")
+  }
+  getEat(){
+    alert("seed")
+  }
+  getFly(){
+    alert("yes")
+  }
+  getBuildNest(){
+    alert("yes")
+  }
+}
+class Reptile extends Animal{
+  #coldblooded_
+  constructor(name,age,weight,coldblooded){
+    super(name,age,weight)
+    this.#coldblooded_=coldblooded
+  }
+  getMakeSound(){
+    alert("non sound")
+  }
+  getEat(){
+    alert("frog")
+  }
+  getCrawl(){
+    alert("yes")
+  }
+  getBaskinSunlinghts(){
+    alert("yes")
+  }
+}
+// Задание 2
+class LibraryResource{
+  #title_
+  constructor(title){
+    this.#title_=title
+  }
+  getChekOut(){
+    alert("given") 
+}
+getReturnToShelf(){
+  alert("returned")
+}
+}
+class Book extends LibraryResource{
+  #author_
+  #pages_
+  #cover_
+  constructor(title,author,pages,cover,){
+    super(title)
+    this.#author_=author
+    this.#cover_=cover
+    this.#pages_=pages
+  }getChekOut(){
+    alert("not given") 
+}
+getReturnToShelf(){
+  alert("not returned")
+}
+getAuthor(){
+  alert("Fet")
+}
+getNumberOfPages(){
+  alert(556)
+}
+getIsHardcover(){
+  alert("Hard")
+}
+}
+class DVD extends LibraryResource{
+  #director_
+  #duration_
+  #rating_
+  constructor(title,director,duration,rating){
+    super(title)
+    this.#director_=director
+    this.#duration_=duration
+    this.#rating_=rating
+  }getChekOut(){
+    alert("yes given") 
+}
+getReturnToShelf(){
+  alert("yes returned")
+}
+getDirector(){
+  alert("Boby")
+}
+getDuration(){
+  alert(90)
+}
+getRating(){
+  alert("High")
+}
+}
+class AudioBook extends LibraryResource{
+  #autorName_
+  #allDuration_
+  #language_
+  constructor(title,dautorName,allDuration,language){
+    super(title)
+    this.#autorName_=autorName
+    this.#allDuration_=allDuration
+    this.#language_=language
+  }getChekOut(){
+    alert("yes given") 
+}
+getReturnToShelf(){
+  alert("yes returned")
+}
+getNarratorNam(){
+  alert("Lee")
+}
+getTotalDuration(){
+  alert(96)
+}
+getLanguage(){
+  alert("Russian")
+}
 }
